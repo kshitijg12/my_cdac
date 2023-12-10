@@ -1,0 +1,58 @@
+package binarySearchTree;
+
+public class BinarySearchTree {
+
+	static class Node {
+
+		private int data;
+
+		private Node left;
+
+		private Node right;
+
+		public Node() {
+			this.data = 0;
+			this.left = null;
+			this.right = null;
+		}
+
+		public Node(int val) {
+			this.data = val;
+			this.left = null;
+			this.right = null;
+		}
+
+	}
+
+	private Node root;
+
+	public BinarySearchTree() {
+		this.root = null;
+	}
+	
+	public void addNode(int val)
+	{
+		Node newNode = new Node(val);
+		Node trav = root;
+		
+		if(root == null)
+		{
+			root = newNode;
+			return;
+		}
+		
+		while(true)
+		{
+			if(val < trav.data )
+			{
+				if(trav != null)
+				{
+					trav = trav.left;
+				}
+				else {
+					trav.left= newNode;
+				}
+			}
+		}
+	}
+}

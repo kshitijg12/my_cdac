@@ -1,0 +1,57 @@
+package sortedSinglyLL;
+
+import java.util.Scanner;
+
+public class SortedSinglyMain {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		SortedSingly sorted = new SortedSingly();
+		sorted.add(30);
+		sorted.add(50);
+		sorted.add(10);
+		sorted.add(90);
+		
+		boolean flag = false;
+		
+		while(!flag)
+		{
+			System.out.println("1. To display list \n"
+					+ "2. To add Node \n");
+			switch (sc.nextInt()) {
+			case 1:System.out.print("( ");
+				sorted.display();
+				System.out.println(" )");
+				
+				break;
+
+			case 2 :System.out.println("Enter value to be added"); 
+				sorted.add(sc.nextInt());
+				break;
+				
+			case 3:int x = 0;
+				SortedSingly newList = new SortedSingly();
+				while(  x != 2) {
+				System.out.println("1. To add data to new List \n"
+					+ "2. To finish adding");
+			
+			        x = sc.nextInt();
+			switch(x) {
+			case 1: System.out.println("Enter value to be entered in new list"); 
+				newList.add(sc.nextInt());
+			
+			case 2: sorted.addAll(newList);
+			break;
+			}//end of inner switch                       
+			}// end of inner while loop
+			
+			case 4: 
+			break;
+			case 0: flag = true;
+				break;
+			}
+		}
+
+	}
+
+}

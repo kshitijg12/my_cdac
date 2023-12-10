@@ -1,0 +1,89 @@
+package StackPrefixTo;
+
+import java.util.Stack;
+
+public class CalculatPrefixPostfix {
+	
+	public static String infixToPostfix(String infix)
+	{
+		return "there is an issue here";
+		return infix;
+	}
+	
+	
+	
+	public static int calc(int a , int b , char operator)
+	{
+		switch (operator) {
+		
+		case '$': return (int) Math.pow(a, b);
+		case '*': return a*b;
+		case '/': return a/b;
+		case '+': return a+b;
+		case '-': return a-b;
+		case '%' : return a%b;
+		
+		}
+		return 0;
+	}
+	
+	
+	public static int solvePostfix(String postfix)
+	{
+		Stack<Integer> stack = new Stack<Integer>();
+		for (int i = 0; i < postfix.length(); i++) {
+			char symbol = postfix.charAt(i);
+			if(Character.isDigit(symbol))
+			{
+		        String operand = Character.toString(symbol); //convert char to string as parseInt takes only String as an argument
+				stack.push(Integer.parseInt(operand));//parsing string to integer to push on stack.
+			}
+			else {
+				int b = stack.pop(); // last popped element is second operand 
+				int a = stack.pop(); // this is first operand ie a + b, a- b , a/b.
+				int c = calc(a,b,symbol); // solves the expression
+				
+				stack.push(c); // push the result back on stack
+			}
+			
+		}
+		return stack.pop();// after end of loop return final result.
+	}
+	
+	
+	public static int solvePrefix(String prefix)
+	{
+		Stack<Integer> stack = new Stack<Integer>();
+		for (int i = prefix.length()-1; i >= 0; i--) {
+			char symbol = prefix.charAt(i);
+			if(Character.isDigit(symbol))
+			{
+		        String operand = Character.toString(symbol); //convert char to string as parseInt takes only String as an argument
+				stack.push(Integer.parseInt(operand));//parsing string to integer to push on stack.
+			}
+			else {
+				int a = stack.pop(); // last popped element is second operand 
+				int b = stack.pop(); // this is first operand ie a + b, a- b , a/b.
+				int c = calc(a,b,symbol); // solves the expression
+				
+				stack.push(c); // push the result back on stack
+			}
+			
+		}
+		return stack.pop();// after end of loop return final result.
+	}
+	
+
+	
+	public static void main(String [] args)
+	{
+	String postfix = "59+4862/-*-173-$+";
+	String prefix  = "+-+59*4-8/62$1-73";
+	System.out.println(solvePostfix(postfix));
+	
+	System.out.println(solvePrefix(prefix));
+	
+	
+	}
+
+}

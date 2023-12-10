@@ -1,0 +1,30 @@
+package DoublyList;
+
+public class DoublyList {
+	
+	static class Node{
+		private int data;   // created multiple times per node
+		private Node prev;
+		private Node next;
+		
+		public Node()
+		{
+			data = 0;
+			prev = null;
+			next = null;
+		}
+		public Node(int val)
+		{
+			data = val;
+			prev = null;
+			next = null;
+		}
+		}// end of node class
+	
+	private Node head; // Inside doubly list only created once per list
+   public DoublyList()
+   {
+	   head = null;
+   }
+	
+}

@@ -1,0 +1,21 @@
+package sortedSinglyLL;
+
+import java.util.Scanner;
+
+public class SortedSinglyMain {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		SortedSingly sorted = new SortedSingly();
+		
+		boolean flag = false;
+		
+		while(!flag)
+		{
+			System.out.println("1. To display list \n"
+					+ "2. To add Node \n");
+		}
+
+	}
+
+}

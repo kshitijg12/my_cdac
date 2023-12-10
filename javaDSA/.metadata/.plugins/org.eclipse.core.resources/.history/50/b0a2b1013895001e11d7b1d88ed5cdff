@@ -1,0 +1,36 @@
+package binarySearchTree;
+
+import java.util.Scanner;
+
+public class BSTMain {
+  
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		BinarySearchTree bst = new BinarySearchTree();
+		
+		boolean flag = false;
+		
+		while(!flag)
+		{
+			System.out.println("Enter 1. To Enter a value. \n"
+					+ "2. To Print in Pre-order \n"
+					+ "3. To Print in In-Order \n"
+					+ "4. To Print in Post- Order\n");
+			switch (sc.nextInt()) {
+			case 1:System.out.println("Enter value to be added in BST");
+			bst.addNode(sc.nextInt());
+				
+				break;
+			case 2: System.out.println("Printing Tree in Pre-Order");
+			System.out.print("( ");
+			bst
+			
+			
+			}
+		}
+		sc.close();
+		
+	}
+}

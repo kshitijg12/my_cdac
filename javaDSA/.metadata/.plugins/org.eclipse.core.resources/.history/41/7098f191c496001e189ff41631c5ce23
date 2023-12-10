@@ -1,0 +1,188 @@
+package DoublyList;
+
+public class DoublyList {
+
+	static class Node {
+		private int data; // created multiple times per node
+		private Node prev;
+		private Node next;
+
+		public Node() {
+			data = 0;
+			prev = null;
+			next = null;
+		}
+
+		public Node(int val) {
+			data = val;
+			prev = null;
+			next = null;
+		}
+	}// end of node class
+
+	private Node head; // Inside doubly list only created once per list
+
+	public DoublyList() {
+		head = null;
+	}
+	// methods
+
+	public void addFirst(int val) {
+		Node newNode = new Node(val);
+
+		if (head == null) {
+			head = newNode;
+			return;
+		}
+		newNode.next = head;
+		head.prev = newNode;
+		head = newNode;
+
+	}
+
+	public void addLast(int val) {
+		Node newNode = new Node(val);
+		Node trav = head;
+		if (head == null) {
+			addFirst(val);
+			return;
+		}
+
+		while (trav.next != null) {
+			trav = trav.next;
+		}
+		trav.next = newNode;
+		newNode.prev = trav;
+
+	}
+
+	public void displayForward() {
+		Node trav = head;
+
+		while (trav != null) {
+			System.out.print(trav.data + " ");
+			trav = trav.next;
+		}
+	}
+
+	public void displayReverse(Node trav) {
+		if (trav == null)
+			return;
+
+		displayReverse(trav.next);
+		System.out.print(trav.data + " ");
+
+	}
+
+	public void displayReverse() {
+		displayReverse(head);
+	}
+
+	public void deleteFirst() {
+		if (head == null) {
+			System.out.println("List is empty");
+			return;
+		}
+		if (head.next == null) {
+			head = null;
+			return;
+		}
+		head = head.next;
+		head.prev = null;
+	}
+
+	public void deleteLast() {
+		if (head == null) {
+			System.out.println("List is empty");
+			return;
+		}
+		if (head.next == null) {
+			head = null;
+			return;
+		}
+		Node trav = head;
+		Node temp = head;
+		while (trav.next != null) {
+			temp = trav;
+			trav = trav.next;
+		}
+
+		temp.next = null;
+		trav.prev = null;
+	}
+
+	public void addAtPosition(int position, int value) {
+		if (head == null || position <= 1) {
+			addFirst(value);
+			return;
+		}
+
+		Node newNode = new Node(value);
+		Node trav = head;
+		Node temp = head;
+		for (int i = 1; i < position; i++) {
+			if (trav.next == null) {
+				addLast(value);
+				return;
+			}
+
+			temp = trav;
+			trav = trav.next;
+		}
+		temp.next = newNode;
+		newNode.prev = temp;
+		newNode.next = trav;
+		trav.prev = newNode;
+	}
+
+	public void deleteAtPosition(int position) {
+		Node trav = head;
+		Node temp = head;
+		if(position == 1)
+		{
+			deleteFirst();
+			return;
+		}
+		if (position < 1) {
+			System.out.println("Invalid index");
+			return;
+		}
+
+		for (int i = 1; i < position; i++) {
+			
+			if (trav == null)
+				return;
+
+			temp = trav;
+			trav = trav.next;
+		}
+
+		temp.next = trav.next;
+		trav.prev = null;
+	}
+	
+	public void reverseList()
+	{
+		if(head == null)
+		{
+			System.out.println("List is empty");
+			return;
+		}
+		
+		Node oldHead = head ;
+		head = null;
+		while(oldHead != null)
+		{
+			addFirst(oldHead.data);
+			oldHead = oldHead.next;
+		}
+	}
+	public void sortList()
+	{
+		if(head == null)
+		{
+			System.out.println("List is empty");
+			return;
+		}
+	}
+}
