@@ -17,7 +17,7 @@ public class SortedSinglyMain {
 		while (!flag) {
 			System.out.println("1. To display comma separated list \n" + "2. To add Node \n"
 					+ "3. To append list in sorted form \n" + "4. To remove element present at index x \n"
-							+ "5. Get index  of the node ");
+					+ "5. Get index  of the node ");
 			switch (sc.nextInt()) {
 			case 1:
 				System.out.print("( ");
@@ -53,13 +53,15 @@ public class SortedSinglyMain {
 				System.out.println("Enter position to be deleted ");
 				sorted.deleteAtPosition(sc.nextInt());
 				break;
-				
-			case 5: System.out.println("Enter value to get position");
-     			int index = sorted.getIndex(sc.nextInt());
-     			System.out.println("Index is :"+ index);
+
+			case 5:
+				System.out.println("Enter value to get position");
+				int index = sorted.getIndex(sc.nextInt());
+				System.out.println("Index is :" + index);
 				break;
-			case 6: System.out.println(sorted.isSorted()?"List is sorted":"List is not sorted");
-			break;
+			case 6:
+				System.out.println(sorted.isSorted() ? "List is sorted" : "List is not sorted");
+				break;
 			case 0:
 				flag = true;
 				break;
