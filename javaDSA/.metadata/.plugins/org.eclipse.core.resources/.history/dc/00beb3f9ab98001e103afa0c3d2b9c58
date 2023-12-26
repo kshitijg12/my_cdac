@@ -1,0 +1,22 @@
+package stackkClass;
+
+import java.util.Scanner;
+
+public class MaxMAin {
+
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	
+	Stackk stack = new Stackk(10);
+	
+	boolean flag = false;
+	
+	while(!flag)
+	{
+	System.out.println("1. To push value. \n"
+			+ "2. To pop value \n"
+			+ "3. To get max");
+		
+	}
+	}	
+}

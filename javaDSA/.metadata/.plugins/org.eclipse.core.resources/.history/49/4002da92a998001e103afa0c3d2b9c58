@@ -1,0 +1,13 @@
+package stackkClass;
+
+public class Stackk {
+	private int[] arr;
+
+	private int top;
+   
+	public Stackk(int val)
+	{
+		arr = new int[val];
+		top = -1;
+	}
+}

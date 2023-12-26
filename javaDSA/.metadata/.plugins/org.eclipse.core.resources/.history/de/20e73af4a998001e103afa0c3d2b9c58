@@ -1,0 +1,25 @@
+package stackkClass;
+
+public class Stackk {
+	private int[] arr;
+	private int [] max;
+
+	private int top;
+   
+	public Stackk(int val)
+	{
+		arr = new int[val];
+		max = new int[val];
+		top = -1;
+	}
+	
+	public void push(int val)
+	{
+		arr[++top] = val;
+	}
+	
+	public int pop()
+	{
+		
+	}
+}

@@ -1,0 +1,61 @@
+package stackkClass;
+
+public class Stackk {
+	private int[] arr;
+	private int[] max;
+
+	private int top;
+	private int top2;
+
+	public Stackk(int val) {
+		arr = new int[val];
+		max = new int[val];
+		top = -1;
+		top2 = -1;
+	}
+
+	public void push(int val) {
+		if (isFull()) {
+			System.out.println("Stack is full");
+			return;
+		}
+
+		arr[++top] = val;
+		if(top2 == -1)
+			max[++top] = val;
+		else if(val > getMax() )
+			max[++top] = val;
+	}
+
+	public int pop() {
+		if (isEmpty()) {
+			System.out.println("Stack is empty return");
+			return -1;
+		}
+
+		if (getMax() == top) {
+			top2--;
+		}
+
+		return arr[top--];
+
+	}
+
+	public int peek() {
+		return arr[top];
+
+	}
+
+	public int getMax() {
+
+		return max[top2];
+	}
+
+	public boolean isEmpty() {
+		return top == -1;
+	}
+
+	public boolean isFull() {
+		return top == arr.length - 1;
+	}
+}
