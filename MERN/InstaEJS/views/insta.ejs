@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insta page</title>
+</head>
+<body>
+    <h2> This page belongs to <%= username %> </h2>
+    <button>Follow</button>
+    <button>Message</button>
+    
+    <h3>People that follow you </h3>
+    <ul>
+       <% for(let name of followers){ %>
+            <li><%= name %></li>  <!-- variables have to be written inside <%= %> tags-->
+       <% }  %>
+    </ul>
+
+
+    <%- include("includes/footer.ejs")%>
+
+</body>
+</html>
